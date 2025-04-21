@@ -61,7 +61,7 @@ Relasi artikel dengan kategori.
 
 ## Query untuk Menampilkan Artikel
 
-Gunakan query berikut untuk menampilkan daftar artikel lengkap:
+menggunakan query berikut untuk menampilkan daftar artikel lengkap:
 
 ```sql
 SELECT 
@@ -69,7 +69,6 @@ SELECT
     a.date AS tanggal_publikasi,
     au.nickname AS nama_penulis,
     c.name AS nama_kategori,
-    a.picture AS picture,
     a.content AS isi_artikel
 FROM 
     article a
@@ -83,3 +82,19 @@ JOIN
     category c ON ac.category_id = c.id
 ORDER BY 
     a.date DESC;
+
+```
+## Deskripsi Web
+Website ini adalah aplikasi web sederhana berbasis PHP dan MySQL yang dirancang untuk menampilkan daftar artikel seperti blog atau portal berita. Artikel ditampilkan secara dinamis dari database dengan fitur-fitur berikut:
+Fitur Utama
+
+Menampilkan artikel secara dinamis: Data diambil langsung dari database menggunakan query SQL dengan JOIN untuk menggabungkan informasi dari beberapa tabel.
+Gambar artikel: Setiap artikel dapat menyertakan gambar yang diambil dari kolom picture dan ditampilkan dari folder uploads/.
+Tanggal publikasi: Menampilkan tanggal artikel dipublikasikan dalam format yang rapi.
+Penulis dan kategori: Menampilkan nama penulis dan kategori artikel. Satu artikel bisa memiliki lebih dari satu penulis dan/atau kategori, berkat penggunaan tabel many-to-many (article_author dan article_category).
+Isi artikel: Artikel mendukung konten HTML, sehingga kamu bisa menambahkan heading, gambar tambahan, list, atau elemen HTML lainnya di dalam isi.
+
+Teknologi yang Digunakan <br>
+Bahasa    = PHP <br>
+Database  = MySQL (artikel_db) <br>
+Desain	  = HTML, CSS
